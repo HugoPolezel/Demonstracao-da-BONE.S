@@ -43,8 +43,8 @@ const artworks: Artwork[] = [
     index: "05",
   },
   {
-    src: `${BASE}assets/foto-caio-03.webp`,
-    alt: "Fotografia oficial da campanha Dreamstation",
+    src: `${BASE}assets/ilustracao-06.webp`,
+    alt: "Peça editorial BONES Dreamstation com três modelos de óculos azuis",
     type: "ILUSTRAÇÃO 6",
     index: "06",
   },
@@ -202,9 +202,16 @@ function App() {
       </section>
 
       <div className="ticker" aria-hidden="true">
-        <div>
-          BONE.S&nbsp;/&nbsp; THE DREAM NEVER STOPS&nbsp;/&nbsp; DREAMSTATION&nbsp;/&nbsp;
-          BONE.S&nbsp;/&nbsp; THE DREAM NEVER STOPS&nbsp;/&nbsp; DREAMSTATION&nbsp;/&nbsp;
+        <div className="ticker-track">
+          {[0, 1].map((group) => (
+            <span className="ticker-group" key={group}>
+              {Array.from({ length: 16 }, (_, i) => (
+                <span key={i}>
+                  BONE.S&nbsp;/&nbsp; THE DREAM NEVER STOPS&nbsp;/&nbsp; DREAMSTATION&nbsp;/&nbsp;
+                </span>
+              ))}
+            </span>
+          ))}
         </div>
       </div>
 

@@ -223,6 +223,11 @@ main {
 
 .hero {
   position: relative;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: flex-end;
   padding: 150px 4.2vw 125px;
   overflow: hidden;
   background: #000;
@@ -364,12 +369,24 @@ main {
 }
 
 .ticker div {
+  display: flex;
   font-family: var(--font-accent);
   width: max-content;
   font-size: 15px;
   font-weight: 900;
   letter-spacing: 0.05em;
-  animation: ticker 22s linear infinite;
+  /* duas metades idênticas: -50% fecha o ciclo sem cortes, em qualquer largura de tela */
+  animation: ticker 90s linear infinite;
+}
+
+.ticker-group {
+  display: flex;
+  flex: none;
+}
+
+.ticker-group span {
+  padding-right: 0.6em;
+  white-space: nowrap;
 }
 
 @keyframes ticker {
@@ -690,10 +707,6 @@ main {
 .gallery-card-6 {
   grid-column: 7 / span 4;
   margin-top: 12vw;
-}
-
-.gallery-card-7 {
-  grid-column: 3 / span 4;
 }
 
 .products {
@@ -1359,10 +1372,6 @@ footer > p {
     margin-top: 70px;
   }
 
-  .gallery-card-7 {
-    grid-column: 1 / span 1;
-  }
-
   .expand-icon {
     right: 8px;
     bottom: 8px;
@@ -1433,13 +1442,4 @@ footer > p {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+/* Animações sempre ativas: o site depende delas (faixa rolante, disco, hover). */
